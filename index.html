@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>همراه من | آموزش و حفظ قرآن</title>
+<meta name="theme-color" content="#061622">
+<meta name="app-version" content="apex-v6-tilawat-hadith">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="aurora"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+<div id="app">
+
+  <!-- ================= SPLASH ================= -->
+  <div id="splash-screen" class="cinematic-splash">
+    <div class="splash-orbit orbit-a"></div><div class="splash-orbit orbit-b"></div>
+    <div class="splash-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="splash-moon">☾</div>
+    <div class="splash-mascot" id="splash-mascot"></div>
+    <div class="splash-kicker">آغاز یک مسیر روشن</div>
+    <div class="splash-title"><span>همراه</span> من</div>
+    <div class="splash-tagline">یادگیری • حفظ • مرور</div>
+    <div class="splash-loader"><div class="splash-loader-bar"></div></div>
+    <div class="splash-sub" id="splash-status">در حال آماده‌سازی مسیر شما…</div>
+  </div>
+
+  <!-- ================= MAIN MENU ================= -->
+  <section id="screen-menu" class="top-screen">
+    <div class="topbar">
+      <div class="brand">همراه من<small>همراه روزانه‌ی شما با قرآن</small></div>
+    </div>
+    <main>
+      <div class="menu-welcome">
+        <div class="mascot-wrap" id="menu-mascot"></div>
+        <p id="welcome-line">خوش آمدید</p>
+      </div>
+
+      <div class="hero-profile" onclick="showScreen('hifz'); goTo('hifzhome');">
+        <div class="hero-avatar" id="menu-avatar">﴾ ﴿</div>
+        <div class="hero-profile-copy">
+          <span class="eyebrow">فضای شخصی شما</span>
+          <strong id="menu-profile-name">شروع مسیر حفظ</strong>
+          <small>پیشرفت، مرور و هدف روزانه در یک نگاه</small>
+        </div>
+        <span class="hero-profile-arrow">←</span>
+      </div>
+
+      <div class="quick-grid">
+        <button class="quick-tile" onclick="showScreen('hifz');goTo('hifzhome')"><b>＋</b><span>ثبت حفظ</span></button>
+        <button class="quick-tile" onclick="showScreen('hifz');goTo('hifzhome')"><b>↻</b><span>مرور امروز</span></button>
+        <button class="quick-tile" onclick="showScreen('learn-list')"><b>✦</b><span>یادگیری</span></button>
+      </div>
+
+      <div class="daily-inspiration">
+        <span>﴾ ﴿</span><div><b>یادآوری امروز</b><small>آرام و پیوسته پیش برو؛ هر آیه یک قدم است.</small></div>
+      </div>
+      <div class="command-center">
+        <div class="cc-head"><div><span class="eyebrow">SMART QURAN</span><h3>مرکز پیشرفت شما</h3></div><div class="level-badge" id="menu-level-badge">LV 1</div></div>
+        <div class="cc-xp"><div><b id="menu-xp">۰ XP</b><span id="menu-xp-next">تا سطح بعدی</span></div><div class="xp-track"><i id="menu-xp-fill"></i></div></div>
+        <div class="cc-stats"><div><b id="menu-week-days">۰</b><small>روز فعال این هفته</small></div><div><b id="menu-achievements">۰</b><small>نشان کسب‌شده</small></div><div><b id="menu-focus">۰</b><small>جلسه تمرکز</small></div></div>
+        <div class="cc-actions"><button onclick="openFocusModal()"><span>◷</span>حالت تمرکز</button><button onclick="openAchievements()"><span>✦</span>نشان‌ها</button></div>
+      </div>
+
+      <div class="menu-list">
+        <div class="menu-card" onclick="showScreen('learn-list')">
+          <div class="menu-num">۱</div>
+          <div class="menu-body">
+            <div class="menu-title">شروع یادگیری</div>
+            <div class="menu-desc">اگر تازه می‌خواهید خواندن قرآن را یاد بگیرید، قدم‌به‌قدم از اینجا شروع کنید</div>
+          </div>
+          <div class="menu-arrow">‹</div>
+        </div>
+
+        <div class="menu-card" onclick="showScreen('hifz'); goTo('hifzhome');">
+          <div class="menu-num">۲</div>
+          <div class="menu-body">
+            <div class="menu-title">شروع حفظ</div>
+            <div class="menu-desc">برنامه‌ریزی، پیگیری پیشرفت و مرور اصولی سوره‌ها</div>
+          </div>
+          <div class="menu-arrow">‹</div>
+        </div>
+
+        <div class="menu-card" onclick="showScreen('donate')">
+          <div class="menu-num">۳</div>
+          <div class="menu-body">
+            <div class="menu-title">کمک به مدارس دینی</div>
+            <div class="menu-desc">در حد توان خودتان، حامی مدارس دینی باشید</div>
+          </div>
+          <div class="menu-arrow">‹</div>
+        </div>
+
+        <div class="menu-card" onclick="showScreen('creator')">
+          <div class="menu-num">۴</div>
+          <div class="menu-body">
+            <div class="menu-title">سازنده</div>
+            <div class="menu-desc">درباره‌ی سازنده‌ی این برنامه</div>
+          </div>
+          <div class="menu-arrow">‹</div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- ================= LEARNING: LESSON LIST ================= -->
+  <section id="screen-learn-list" class="top-screen">
+    <div class="topbar">
+      <button class="icon-btn" onclick="showScreen('menu')" aria-label="بازگشت">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="brand" style="text-align:center;flex:1;">شروع یادگیری</div>
+      <div style="width:38px;"></div>
+    </div>
+    <main>
+      <div class="card">
+        <span class="eyebrow">پیشرفت شما</span>
+        <div class="progress-track" style="height:8px;margin-top:8px;">
+          <div class="progress-fill" id="learn-progress-fill" style="width:0%"></div>
+        </div>
+        <p style="font-size:12px;color:var(--parchment-dim);margin:8px 0 0;" id="learn-progress-text">۰ از ۸ درس کامل شد</p>
+      </div>
+      <div id="lesson-list"></div>
+    </main>
+  </section>
+
+  <!-- ================= LEARNING: LESSON VIEW ================= -->
+  <section id="screen-learn-lesson" class="top-screen">
+    <div class="topbar">
+      <button class="icon-btn" onclick="showScreen('learn-list')" aria-label="بازگشت">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="brand" style="text-align:center;flex:1;" id="lesson-view-title">درس</div>
+      <div style="width:38px;"></div>
+    </div>
+    <main id="lesson-view-body"></main>
+  </section>
+
+  <!-- ================= HIFZ MODULE (existing app) ================= -->
+  <section id="screen-hifz" class="top-screen">
+    <div class="topbar">
+      <button class="icon-btn" onclick="showScreen('menu')" aria-label="بازگشت">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="brand" style="text-align:center;flex:1;">شروع حفظ<small>پیگیری روزانه‌ی حفظ قرآن</small></div>
+      <button class="icon-btn" onclick="goTo('settings')" aria-label="تنظیمات">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      </button>
+    </div>
+
+    <main>
+      <!-- ================= DASHBOARD ================= -->
+      <section id="page-dashboard" class="page active">
+        <div class="card" style="text-align:center;">
+          <span class="eyebrow">پیشرفت کلی</span>
+          <div class="star-wrap">
+            <div class="star-bg"></div>
+            <div class="star-fill" id="star-fill" style="--pct:0"></div>
+            <div class="star-center">
+              <div class="pct" id="dash-pct">۰٪</div>
+              <div class="lbl">از کل قرآن</div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <div class="stat"><div class="n" id="stat-streak">0</div><div class="l">روز پیاپی 🔥</div></div>
+            <div class="stat"><div class="n" id="stat-memorized">0</div><div class="l">آیه حفظ‌شده</div></div>
+            <div class="stat"><div class="n" id="stat-surahs">0</div><div class="l">سوره کامل</div></div>
+          </div>
+        </div>
+
+        <div class="smart-mission" id="smart-mission-card">
+          <div class="mission-top"><div><span class="eyebrow">ماموریت امروز</span><h2 id="mission-title">یک قدم کوچک</h2></div><div class="mission-icon">✦</div></div>
+          <p id="mission-desc">امروز فقط یک قدم برای ادامه مسیر کافی است.</p>
+          <div class="mission-progress"><div><span id="mission-progress-label">۰ / ۵ آیه</span><b id="mission-percent">۰٪</b></div><div class="mission-track"><i id="mission-fill"></i></div></div>
+          <button class="mission-btn" onclick="openLogModal()">شروع ماموریت ←</button>
+        </div>
+
+        <div class="card week-card">
+          <div class="week-head"><div><span class="eyebrow">۷ روز اخیر</span><h2>ریتم یادگیری</h2></div><span id="week-summary">آرام و پیوسته</span></div>
+          <div class="week-chart" id="week-chart"></div>
+        </div>
+
+        <div class="card">
+          <h2>هدف امروز</h2>
+          <p style="margin:0 0 14px;font-size:13.5px;color:var(--parchment-dim);line-height:1.9;" id="dash-goal-text">
+            هنوز برنامه‌ای تنظیم نکرده‌اید.
+          </p>
+          <button class="btn btn-primary" onclick="openLogModal()">＋ ثبت پیشرفت امروز</button>
+        </div>
+
+        <div class="card" id="dash-continue-card">
+          <h2>ادامه‌ی حفظ</h2>
+          <div id="dash-continue-body"></div>
+        </div>
+
+        <div class="card" id="dash-review-card">
+          <h2>مرور امروز</h2>
+          <div id="dash-review-body"></div>
+        </div>
+      </section>
+
+      <!-- ================= SURAHS ================= -->
+      <section id="page-surahs" class="page">
+        <input class="search-box" id="surah-search" placeholder="جستجوی نام سوره…" oninput="renderSurahList()">
+        <div class="card" style="padding:6px 12px;">
+          <div id="surah-list"></div>
+        </div>
+      </section>
+
+      <!-- ================= PLAN ================= -->
+      <section id="page-plan" class="page">
+        <div class="card">
+          <h2>برنامه‌ی حفظ روزانه</h2>
+          <div class="field">
+            <label>سطح شما</label>
+            <div class="chip-row" id="level-chips">
+              <div class="chip" data-level="beginner">مبتدی</div>
+              <div class="chip" data-level="intermediate">متوسط</div>
+              <div class="chip" data-level="advanced">پیشرفته</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>هدف روزانه (تعداد آیه)</label>
+            <input type="number" id="daily-target" min="1" placeholder="مثلاً ۵">
+          </div>
+          <button class="btn btn-primary" onclick="savePlan()">ذخیره‌ی برنامه</button>
+        </div>
+
+        <div class="card" id="plan-forecast-card">
+          <h2>پیش‌بینی اتمام قرآن</h2>
+          <div id="plan-forecast-body" style="font-size:13.5px;color:var(--parchment-dim);line-height:2;"></div>
+        </div>
+      </section>
+
+      <!-- ================= REVIEW ================= -->
+      <section id="page-review" class="page">
+        <div class="card">
+          <h2>مرور با فاصله‌ی زمانی</h2>
+          <p style="margin:0 0 12px;font-size:12.5px;color:var(--parchment-dim);line-height:1.9;">
+            هر سوره‌ای که «حفظ‌شده» علامت بزنید، طبق این فهرست برای مرور دوره‌ای یادآوری می‌شود تا فراموش نشود.
+          </p>
+          <div id="review-list"></div>
+        </div>
+      </section>
+
+      <!-- ================= GUIDED HIFZ ================= -->
+      <section id="page-hifzhome" class="page">
+        <div class="hifz-hero">
+          <div><span class="eyebrow">SMART HIFZ • روش مرحله‌ای</span><h1>حفظ را فقط تکرار نکن؛ تثبیتش کن.</h1><p>ترکیب مطالعه‌ی کوتاه، یادآوری فعال، بازخورد و مرور فاصله‌دار.</p></div>
+          <div class="hifz-orb">✦</div>
+        </div>
+        <div class="hifz-progress-card">
+          <div class="step-head"><span id="hifz-step-label">مرحله ۱ از ۷</span><b id="hifz-step-title">انتخاب سوره</b></div>
+          <div class="progress-track"><div id="hifz-step-fill" class="progress-fill" style="width:14%"></div></div>
+        </div>
+        <div id="hifz-wizard"></div>
+      </section>
+
+      <!-- ================= RECITATION LAB ================= -->
+      <section id="page-recite" class="page">
+        <div class="recite-hero"><div><span class="eyebrow">TAJWID LAB • آزمایشگاه تلاوت</span><h1>صدایت را به تمرین تبدیل کن.</h1><p>تشخیص گفتار برای بازخورد تقریبیِ واژه‌به‌واژه؛ نتیجه جایگزین استاد تجوید نیست.</p></div><div class="mic-orb" id="mic-orb">🎙</div></div>
+        <div class="card">
+          <div class="field"><label>سوره</label><select id="recite-surah"></select></div>
+          <div id="recite-ayahs" class="ayah-preview">برای شروع، یک سوره را انتخاب کن.</div>
+          <div class="recite-controls"><button class="btn btn-primary" id="recite-start" onclick="startRecitationLab()">● شروع ارزیابی</button><button class="btn btn-ghost" onclick="stopRecitationLab()">■ توقف</button></div>
+          <div class="recite-live"><div class="live-dot"></div><span id="recite-status">آماده‌ی شنیدن…</span></div>
+          <div id="recite-result" class="recite-result hidden"></div>
+        </div>
+        <div class="card recite-tip"><span class="eyebrow">نکته</span><h2>برای نتیجه‌ی پایدار</h2><p>در محیط آرام، نزدیک میکروفون و با سرعت طبیعی بخوان. اگر تشخیص گفتار واژه‌ای را اشتباه شنید، آن را «نیازمند بررسی» در نظر بگیر، نه حکم قطعیِ خطا.</p></div>
+      </section>
+
+      <!-- ================= TILAWAT ================= -->
+      <section id="page-tilawat" class="page">
+        <div class="tilawat-hero">
+          <div><span class="eyebrow">QURAN AUDIO • تلاوت</span><h1>قرآن را بشنو، آیه‌به‌آیه.</h1><p>یک پخش‌کننده‌ی آرام و ساده برای شنیدن هر سوره با تلاوت قاری منتخب.</p></div>
+          <div class="audio-orb">♫</div>
+        </div>
+        <div class="card audio-card">
+          <div class="field"><label>انتخاب سوره</label><select id="tilawat-surah"></select></div>
+          <div class="audio-now"><div class="audio-icon">﴾ ﴿</div><div><span class="eyebrow">در حال پخش</span><strong id="tilawat-now">سوره فاتحه</strong><small id="tilawat-meta">آماده‌ی شروع</small></div></div>
+          <div class="audio-progress"><div class="audio-progress-top"><span id="tilawat-ayah-label">آیه ۱</span><span id="tilawat-time">۰۰:۰۰</span></div><div class="audio-track" id="tilawat-track"><i id="tilawat-fill"></i></div></div>
+          <div class="audio-controls"><button onclick="tilawatPrev()">⏮</button><button class="play-main" id="tilawat-play" onclick="toggleTilawat()">▶</button><button onclick="tilawatNext()">⏭</button></div>
+          <div class="audio-extra"><button id="tilawat-repeat" onclick="toggleTilawatRepeat()">↻ تکرار آیه</button><button onclick="restartTilawat()">از ابتدا</button></div>
+          <p class="audio-note">صوت از فایل‌های آیه‌به‌آیه‌ی سرویس EveryAyah پخش می‌شود. برای پخش نخست اتصال اینترنت لازم است.</p>
+        </div>
+        <div class="card"><span class="eyebrow">قاری منتخب</span><h2>مشاری راشد العفاسی</h2><p class="muted-line">تلاوت با کیفیت ۱۲۸kbps، آیه‌به‌آیه و با توقف خودکار بین سوره‌ها.</p></div>
+      </section>
+
+      <!-- ================= HADITH ================= -->
+      <section id="page-hadith" class="page">
+        <div class="hadith-hero"><div><span class="eyebrow">SUNNAH • نماز</span><h1>نماز به روایت سنت</h1><p>۴۵ حدیث منتخب درباره نماز، اذان و شیوه‌ی عبادت پیامبر ﷺ؛ هر مورد با منبع مشخص.</p></div><div class="hadith-orb">ﷺ</div></div>
+        <div class="hadith-tools"><input id="hadith-search" placeholder="جست‌وجو در احادیث…" oninput="renderHadiths()"><div class="chip-row" id="hadith-filters"><button class="chip active" data-filter="all" onclick="setHadithFilter('all')">همه</button><button class="chip" data-filter="نماز" onclick="setHadithFilter('نماز')">نماز</button><button class="chip" data-filter="اذان" onclick="setHadithFilter('اذان')">اذان</button><button class="chip" data-filter="خشوع" onclick="setHadithFilter('خشوع')">خشوع</button></div></div>
+        <div id="hadith-list"></div>
+        <div class="hadith-source-note">متن‌های فارسی این بخش «خلاصه‌ی معنایی» هستند، نه نقل لفظ‌به‌لفظ ترجمه. شماره و منبع هر حدیث برای بررسی مستقل درج شده است.</div>
+      </section>
+
+      <!-- ================= SETTINGS ================= -->
+      <section id="page-settings" class="page">
+        <div class="card">
+          <h2>مشخصات</h2>
+          <div class="field">
+            <label>نام شما</label>
+            <input type="text" id="setting-name" placeholder="مثلاً محمد">
+          </div>
+          <div class="field">
+            <label>اندازه‌ی قلم متن عربی</label>
+            <div class="chip-row" id="font-chips">
+              <div class="chip" data-size="18">کوچک</div>
+              <div class="chip" data-size="22">متوسط</div>
+              <div class="chip" data-size="28">بزرگ</div>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="saveSettings()">ذخیره‌ی تنظیمات</button>
+        </div>
+        <div class="card data-tools-card">
+          <span class="eyebrow">پشتیبان امن</span><h2>اطلاعات شما</h2>
+          <p>پیشرفتتان را به یک فایل کوچک تبدیل کنید و هر زمان خواستید دوباره برگردانید.</p>
+          <div class="data-tools"><button class="btn btn-ghost" onclick="exportData()">⬇ خروجی گرفتن</button><button class="btn btn-ghost" onclick="document.getElementById('import-file').click()">⬆ بازیابی</button></div>
+          <input id="import-file" type="file" accept="application/json" hidden onchange="importData(event)">
+        </div>
+        <div class="card">
+          <h2>داده‌ها</h2>
+          <p style="font-size:12.5px;color:var(--parchment-dim);margin:0 0 12px;">تمام اطلاعات فقط روی همین گوشی/مرورگر ذخیره می‌شود.</p>
+          <button class="btn btn-ruby" onclick="resetData()">پاک‌کردن کامل پیشرفت</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar apex-tabs">
+      <button class="tab-btn active" data-page="dashboard" onclick="goTo('dashboard')">
+        <span class="tab-icon">⌂</span><span>خانه</span>
+      </button>
+      <button class="tab-btn tab-hifz" data-page="hifzhome" onclick="goTo('hifzhome')">
+        <span class="tab-icon">✦</span><span>شروع حفظ</span>
+      </button>
+      <button class="tab-btn" data-page="tilawat" onclick="goTo('tilawat')">
+        <span class="tab-icon">♫</span><span>تلاوت</span>
+      </button>
+      <button class="tab-btn" data-page="hadith" onclick="goTo('hadith')">
+        <span class="tab-icon">ﷺ</span><span>احادیث</span>
+      </button>
+    </nav>
+  </section>
+
+  <!-- ================= DONATE ================= -->
+  <section id="screen-donate" class="top-screen">
+    <div class="topbar">
+      <button class="icon-btn" onclick="showScreen('menu')" aria-label="بازگشت">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="brand" style="text-align:center;flex:1;">کمک به مدارس دینی</div>
+      <div style="width:38px;"></div>
+    </div>
+    <main>
+      <div class="card" style="text-align:center;">
+        <div class="glyph" style="font-family:var(--font-display);font-size:30px;color:var(--gold);margin-bottom:10px;">﴾ ﴿</div>
+        <p style="font-size:14px;line-height:2.1;color:var(--parchment);margin:0 0 18px;">
+          بسیاری از مدارس دینی برای آموزش قرآن به کودکان و نوجوانان نیازمند حمایت هستند.
+          در حد توان خودتان می‌توانید کمک کنید — هر مبلغی، هرچقدر کوچک، ارزشمند است.
+        </p>
+        <div class="support-note">
+          <div class="support-icon">♥</div>
+          <div><b>حمایت با آگاهی</b><p>اگر قصد حمایت دارید، اطلاعات پرداخت را از مسئولان معتبر مدرسه دریافت کنید. این برنامه شماره کارت ثابتی نمایش نمی‌دهد.</p></div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- ================= CREATOR ================= -->
+  <section id="screen-creator" class="top-screen">
+    <div class="topbar">
+      <button class="icon-btn" onclick="showScreen('menu')" aria-label="بازگشت">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="brand" style="text-align:center;flex:1;">سازنده</div>
+      <div style="width:38px;"></div>
+    </div>
+    <main>
+      <div class="creator-profile apex-creator">
+        <div class="creator-cover"><div class="cover-grid"></div><span>وَقُل رَّبِّ زِدْنِي عِلْمًا</span><i>HAMRAH MAN</i></div>
+        <div class="creator-avatar creator-avatar-3d">ی</div>
+        <div class="creator-info">
+          <span class="eyebrow">FOUNDER • ۲۰۲۶</span>
+          <div class="creator-name">یونس آسکانی</div>
+          <p>ساخته‌شده با یک ایده: حفظ قرآن باید یک مسیر هوشمند، آرام و قابل پیگیری باشد؛ نه مجموعه‌ای از صفحه‌های شلوغ.</p>
+        </div>
+        <div class="creator-stats"><div><b>۱۱۴</b><small>سوره</small></div><div><b>۷</b><small>گام حفظ</small></div><div><b>∞</b><small>رشد</small></div></div>
+      </div>
+      <div class="card creator-manifesto"><span class="eyebrow">THE IDEA</span><h2>هر آیه، یک مهارت.</h2><div class="manifesto-grid"><span>یادگیری</span><span>یادآوری</span><span>تلاوت</span><span>تثبیت</span></div></div>
+      <div class="card creator-values">
+        <span class="eyebrow">چرا همراه من؟</span>
+        <div class="value-row"><b>01</b><span><strong>ساده</strong><small>بدون شلوغی و پیچیدگی اضافه</small></span></div>
+        <div class="value-row"><b>02</b><span><strong>شخصی</strong><small>پیشرفت و برنامه‌ی شما روی همین دستگاه</small></span></div>
+        <div class="value-row"><b>03</b><span><strong>پیوسته</strong><small>مرور فاصله‌دار برای ماندگاری بهتر</small></span></div>
+      </div>
+    </main>
+  </section>
+
+  <!-- ============ MODAL: log progress ============ -->
+  <div class="modal-overlay" id="log-modal">
+    <div class="modal">
+      <h3>ثبت پیشرفت امروز</h3>
+      <div class="field">
+        <label>سوره</label>
+        <select id="log-surah-select"></select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>تا آیه‌ی شماره</label>
+          <input type="number" id="log-ayah-input" min="1">
+        </div>
+        <div class="field">
+          <label>وضعیت</label>
+          <select id="log-status-select">
+            <option value="progress">در حال حفظ</option>
+            <option value="done">حفظ کامل شد</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" onclick="closeLogModal()">انصراف</button>
+        <button class="btn btn-primary" onclick="confirmLog()">ثبت</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: surah detail ============ -->
+  <div class="modal-overlay" id="surah-modal">
+    <div class="modal" id="surah-modal-body"></div>
+  </div>
+
+  <div class="modal-overlay" id="focus-modal">
+    <div class="modal premium-modal">
+      <div class="focus-orb"><span id="focus-time">۱۵:۰۰</span><small>تمرکز</small></div>
+      <div class="focus-presets"><button onclick="setFocus(5)">۵ دقیقه</button><button class="active" onclick="setFocus(15)">۱۵ دقیقه</button><button onclick="setFocus(25)">۲۵ دقیقه</button></div>
+      <p id="focus-message">گوشی را کنار بگذار؛ فقط همین چند دقیقه با قرآن بمان.</p>
+      <div class="modal-actions"><button class="btn btn-ghost" onclick="closeFocusModal()">بستن</button><button class="btn btn-primary" id="focus-start" onclick="toggleFocus()">شروع تمرکز</button></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="achievements-modal">
+    <div class="modal achievements-modal">
+      <div class="modal-title-row"><div><span class="eyebrow">YOUR JOURNEY</span><h3>نشان‌های مسیر</h3></div><button class="icon-btn" onclick="closeAchievements()">×</button></div>
+      <div class="achievement-grid" id="achievement-grid"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/lessons.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
